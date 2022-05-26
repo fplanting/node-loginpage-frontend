@@ -18,7 +18,7 @@ export const Home = () => {
                     Login
                   </Button>
                 </Link>
-                <a href="/register">
+                <Link to="/register">
                   <Button
                     size="lg"
                     className="landingButton"
@@ -26,7 +26,7 @@ export const Home = () => {
                   >
                     Sign up
                   </Button>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
