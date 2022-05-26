@@ -1,0 +1,26 @@
+.main {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background-color: rgb(174, 173, 173);
+}
+
+.title {
+  font-size: 95px;
+}
+
+.intro-text {
+  width: 100%;
+  text-align: center;
+}
+
+.buttonContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.landingButton {
+  width: 200px;
+  height: 55px;
+}
