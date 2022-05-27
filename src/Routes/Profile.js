@@ -1,26 +1,46 @@
 import React from "react";
 import AuthService from "../services/auth.service";
+import { Button, Container } from "react-bootstrap";
 
 export const Profile = () => {
+  const handleSubscription = (e) => {
+    e.preventDefault();
+    // setMessage("");
+    // setSuccessful(false);
+    // form.current.validateAll();
+    // if (checkBtn.current.context._errors.length === 0) {
+    AuthService.updateUser().then(
+      (response) => {
+        // setMessage(response.data.message);
+        // setSuccessful(true);
+      }
+      // (error) => {
+      //   const resMessage =
+      //     (error.response &&
+      //       error.response.data &&
+      //       error.response.data.message) ||
+      //     error.message ||
+      //     error.toString();
+      // setMessage(resMessage);
+      //     // setSuccessful(false);
+      //   }
+    );
+  };
+
   const currentUser = AuthService.getCurrentUser();
   return (
-    <div className="container">
-      <header className="jumbotron">
+    <div className="main">
+      <Container>
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{currentUser.email}</strong> Profile
         </h3>
-      </header>
-      <p>
-        <strong>Id:</strong> {currentUser.id}
-      </p>
-      <p>
-        <strong>Email:</strong> {currentUser.email}
-      </p>
-      <strong>Authorities:</strong>
-      <ul>
-        {currentUser.roles &&
-          currentUser.roles.map((role, index) => <li key={index}>{role}</li>)}
-      </ul>
+        <p>
+          <strong>Subscription:</strong> {currentUser.subscription}
+        </p>
+        <Button variant="dark" onSubmit={handleSubscription}>
+          Change subscription
+        </Button>
+      </Container>
     </div>
   );
 };
