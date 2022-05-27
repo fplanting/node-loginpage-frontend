@@ -38,7 +38,7 @@ export const Login = () => {
     AuthService.login(email, password).then(
       () => {
         navigate("/profile");
-        window.location.reload();
+        // window.location.reload();
       }
       // (error) => {
       //   const resMessage =

@@ -1,43 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AuthService from "../services/auth.service";
 import { Button, Container } from "react-bootstrap";
 
 export const Profile = () => {
+  const [email, setEmail] = useState("");
+  const [subscription, setSubscription] = useState(false);
+
+  const [currentUser, setCurrentUser] = useState({
+    email: "",
+    subscription: false,
+  });
+
   const handleSubscription = (e) => {
+    console.log("Handle");
     e.preventDefault();
-    // setMessage("");
-    // setSuccessful(false);
-    // form.current.validateAll();
-    // if (checkBtn.current.context._errors.length === 0) {
-    AuthService.updateUser().then(
-      (response) => {
-        // setMessage(response.data.message);
-        // setSuccessful(true);
-      }
-      // (error) => {
-      //   const resMessage =
-      //     (error.response &&
-      //       error.response.data &&
-      //       error.response.data.message) ||
-      //     error.message ||
-      //     error.toString();
-      // setMessage(resMessage);
-      //     // setSuccessful(false);
-      //   }
-    );
+    AuthService.updateUser(!subscription).then((response) => {
+      console.log("Update");
+      setSubscription(response.data.data.subscription);
+    });
   };
 
-  const currentUser = AuthService.getCurrentUser();
+  useEffect(() => {
+    AuthService.getCurrentUser().then((response) => {
+      let data = response.data.data;
+      setEmail(data.email);
+      setSubscription(data.subscription);
+    });
+  });
   return (
     <div className="main">
       <Container>
         <h3>
-          <strong>{currentUser.email}</strong> Profile
+          <strong>Hello {email}</strong>
         </h3>
         <p>
-          <strong>Subscription:</strong> {currentUser.subscription}
+          <strong>Are you a subscriber of our newsletter? </strong>
+          {subscription ? "Yes" : "No"}
         </p>
-        <Button variant="dark" onSubmit={handleSubscription}>
+        <Button variant="dark" onClick={handleSubscription}>
           Change subscription
         </Button>
       </Container>

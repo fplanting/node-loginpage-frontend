@@ -2,10 +2,11 @@ import axios from "axios";
 const API_URL = "http://localhost:3000/users/";
 
 // register a user
-const register = (email, password) => {
+const register = (email, password, subscription) => {
   return axios.post(API_URL, {
     email,
     password,
+    subscription,
   });
 };
 
@@ -18,19 +19,24 @@ const login = (email, password) => {
       password,
     })
     .then((response) => {
-      if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+      console.log(response);
+      console.log(typeof response);
+      if (response.data.status === 200) {
+        localStorage.setItem("user", JSON.stringify(response.data.data));
       }
-      return response.data;
+      return response.data.data;
     });
 };
 
 const getCurrentUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
+  let user = JSON.parse(localStorage.getItem("user"));
+  return axios.get(API_URL + user.id);
 };
 
-const updateUser = (userid, subscription) => {
-  return axios.put(API_URL + userid, {
+const updateUser = (subscription) => {
+  console.log("subscription", subscription);
+  let user = JSON.parse(localStorage.getItem("user"));
+  return axios.put(API_URL + user.id, {
     subscription,
   });
 };
