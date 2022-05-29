@@ -6,11 +6,6 @@ export const Profile = () => {
   const [email, setEmail] = useState("");
   const [subscription, setSubscription] = useState(false);
 
-  const [currentUser, setCurrentUser] = useState({
-    email: "",
-    subscription: false,
-  });
-
   const handleSubscription = (e) => {
     console.log("Handle");
     e.preventDefault();

@@ -28,11 +28,13 @@ const login = (email, password) => {
     });
 };
 
+//show logged in user
 const getCurrentUser = () => {
   let user = JSON.parse(localStorage.getItem("user"));
   return axios.get(API_URL + user.id);
 };
 
+//update users subscription
 const updateUser = (subscription) => {
   console.log("subscription", subscription);
   let user = JSON.parse(localStorage.getItem("user"));

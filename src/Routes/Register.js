@@ -23,7 +23,7 @@ export const Register = (props) => {
   const handleRegister = (e) => {
     e.preventDefault();
     AuthService.register(email, password, subscription).then((response) => {
-      navigate("/Login");
+      navigate("/");
     });
   };
   return (
@@ -49,15 +49,6 @@ export const Register = (props) => {
               onChange={onChangePassword}
             />
           </Form.Group>
-          {/* <Form.Group controlId="formBasicSubscription">
-            <Form.Label>Subscription</Form.Label>
-            <Form.Control
-              type="subscription"
-              value={subscription}
-              placeholder="subscription"
-              onChange={onChangeSubscription}
-            />
-          </Form.Group> */}
           <Form.Check
             type="switch"
             id="custom-switch"

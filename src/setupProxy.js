@@ -1,3 +1,4 @@
+// to make cors work local, using a middleware
 const { createProxyMiddleware } = require("http-proxy-middleware");
 module.exports = function (app) {
   app.use(
