@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_URL = "http://localhost:3000/users/";
+const API_URL = "https://node-loginpage.herokuapp.com/users/";
 
 // register a user
 const register = (email, password, subscription) => {
