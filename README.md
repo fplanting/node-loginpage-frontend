@@ -13,7 +13,7 @@ Once started open [http://localhost:3006](http://localhost:3006) to view it in y
 
 School project.\
 A backend and frontend login page.\
-[https://github.com/fplanting/node-loginpage-backend](Click here to get to backend).\
+[Click here to get to backend](https://github.com/fplanting/node-loginpage-backend).\
 Register an account and subscribe to a newsletter, login and see your information and change status on subscription.\
 All users get collected in a MongoDB database.
 
