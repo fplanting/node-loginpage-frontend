@@ -17,6 +17,8 @@ A backend and frontend login page.\
 Register an account and subscribe to a newsletter, login and see your information and change status on subscription.\
 All users get collected in a MongoDB database.
 
+[Click here to see site live on Netlify](https://node-loginpage.netlify.app/)
+
 ### Packages used
 
 react \
